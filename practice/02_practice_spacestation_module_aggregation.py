@@ -23,3 +23,27 @@ Practice aggregation, meaning independent objects are collected inside another.
 5. Create three Modules, add them, then print total_mass().
 '''
 
+class Module:
+    def __init__(self, name, mass_kg):
+        self.name = name
+        self.mass_kg = mass_kg
+        
+class SpaceStation:
+    def __init__ (self):
+        self.modules = []
+    def add_module(self, module):
+        self.modules.append(module)
+    def total_mass(self):
+        total = 0
+        for m in self.modules:
+            total += m.mass_kg
+        return total
+
+mod1 = Module("Sleeping", 300)
+mod2 = Module("Research", 500)
+mod3 = Module("Obvservation", 400)
+ss = SpaceStation()
+ss.add_module(mod1)
+ss.add_module(mod2)
+ss.add_module(mod3)
+print(f"Total Mass: {ss.total_mass()} kg")
