@@ -23,3 +23,20 @@ Work with private variables (double-underscore) and simple getters and setters.
    finally print current health.
 '''
 
+class Player:
+    def __init__(self):
+        self.__health = 100
+    def get_health(self):
+        return self.__health
+    def set_health(self, value):
+        if value < 0:
+            print("Invalid health value")
+        else:
+            self.__health = value
+
+player_1 = Player()
+player_1.set_health(60)
+player_1.set_health(-10)
+print(player_1.get_health())
+        
+
