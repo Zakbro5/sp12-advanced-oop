@@ -32,4 +32,26 @@ class Exhibit:
     def describe(self):
         return f"Exhibit: {self.title}"
 
-# Write your subclasses and Museum class below this line
+class Painting(Exhibit):
+    def describe(self):
+        return f"Painting: {self.title}"
+    
+class Sculpture(Exhibit):
+    def describe(self):
+        return f"Sculpture: {self.title}"
+    
+class Museum:
+    def __init__(self):
+        self.exhibit = []
+    def add_exhibit(self, exhibit):
+        self.exhibit.append(exhibit)
+    def print_all(self):
+        for ex in self.exhibit:
+            print(ex.describe())
+        print("Total exhibits:", len(self.exhibit))
+
+museum_1 = Museum()
+museum_1.add_exhibit(Painting("Mona Lisa"))
+museum_1.add_exhibit(Sculpture("Michaelangelo's David"))
+museum_1.print_all()
+
