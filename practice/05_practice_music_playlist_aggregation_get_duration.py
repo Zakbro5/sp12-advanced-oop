@@ -23,3 +23,30 @@ Another look at aggregation, collecting independent objects.
 5. Make three tracks, add them, then print total_duration().
 '''
 
+class Track:
+    def __init__(self, title, duration_seconds):
+        self.title = title
+        self.duration_seconds = duration_seconds
+
+class Playlist:
+    def __init__(self):
+        self.tracks = []
+    def add_track(self, track):
+        self.tracks.append(track)
+    def total_duration(self):
+        total = 0
+        for t in self.tracks:
+            total += t.duration_seconds
+            minutes = total // 60
+            seconds = total % 60
+            return f"{minutes}:{seconds}"
+        
+play_list = Playlist()
+track_1 = Track("Song 1", 230)
+track_2 = Track("Song 2", 156)
+track_3 = Track("Song 3", 190)
+
+play_list.add_track(track_1)
+play_list.add_track(track_2)
+play_list.add_track(track_3)
+print("Total Duration:", play_list.total_duration())
